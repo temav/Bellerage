@@ -60,16 +60,12 @@ body {
 
 .header {
     background-color: #445162;
-    height: 223px;
     display: block;
     padding: 50px;
-    /*    padding-left: 50px;*/
-    /*    padding-top: 50px;*/
 }
 
 .disp_inline {
     display: inline-block;
-    height: 220px;
 }
 
 .header img {
@@ -79,9 +75,8 @@ body {
 .header h1 {
     display: inline-block;
     margin: 0px;
-    margin-top: -9px;
     width: 375px;
-    height: 55px;
+    line-height: 45px;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
     color: #ffffff;
     font-family: "ArialMT";
@@ -101,19 +96,12 @@ body {
 
 .head_list {
     width: 458px;
-    height: 129px;
     margin: 0;
     padding: 0;
 }
-.head_list p img {
-    margin-top:4px;
-}
+
 .head_list p {
-/*        height: 34px;*/
-    /*    width: 420px;*/
-    /*    vertical-align: top;*/
     margin: 0;
-/*    margin-top: -8px;*/
     padding: 0;
     display: inline-block;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
@@ -121,7 +109,7 @@ body {
     font-family: "ArialMT";
     font-size: 20px;
     font-weight: 400;
-    line-height: 36px;
+    line-height: 33px;
 }
 
 .content {
@@ -131,26 +119,26 @@ body {
 }
 
 .ab_y_pr {
-    height: 245px;
+/*    height: 245px;*/
     padding: 50px;
 }
 
 .ab_y_pr_rec {
     display: inline-block;
+    vertical-align: top;
     width: 430px;
     height: 245px;
-    float: right;
     background-color: #445161;
 }
 
 .ab_y_pr_text {
     display: inline-block;
-    width: 649px;
+    width: 650px;
+    padding-right: 100px;
 }
 
 .ab_y_pr_text p {
     display: inline-block;
-    width: 649px;
     height: 63px;
     color: #333333;
     font-family: "ArialMT";
@@ -161,9 +149,7 @@ body {
 
 .ab_y_pr_text h2 {
     margin: 0;
-    margin-top: -5px;
-    width: 254px;
-    height: 28px;
+    line-height: 28px;
     color: #445161;
     font-family: "ArialMT";
     font-size: 30px;
@@ -183,30 +169,39 @@ body {
 }
 
 .d_a_p_p {
-    height: 317px;
     padding: 50px;
+    padding-bottom: 15px;
     background-color: #f5f5f5;
 }
 
 .d_a_p_p h2 {
     margin-bottom: 30px;
-    margin-top: -5px;
-    height: 28px;
+    line-height: 28px;
 }
 
 .d_a_div {
+/*    box-sizing: content-box;*/
     width: 567px;
-    height: 63px;
     display: inline-block;
     margin-bottom: 35px;
     margin-right: 23px;
-    /*    padding-bottom: 2px;*/
 }
-
+/*
+.d_a_div img {
+    float:left;
+}
+*/
+.d_a_div p::first-line {
+/*    line-height: 12px;*/
+}
 .d_a_div p {
-
+    
+    vertical-align: top;
+    display: inline-block;
     margin: 0;
-    margin-top: -2px;
+    margin-top: -4px;
+    overflow: hidden;
+    box-sizing: padding-box;
     width: 525px;
     display: inline-block;
     color: #333333;
@@ -217,61 +212,55 @@ body {
 }
 
 .d_a_div img {
-    margin-bottom: 29px;
-    /*    float: left;*/
+    vertical-align: top;
+    display: inline-block;
     margin-right: 9px;
 }
 
 .scrinshots {
     padding: 50px;
-    height: 387px;
+    padding-bottom: 20px;
 }
 
 .scrinshots h2 {
-    height: 22px;
+    line-height: 22px;
     margin-bottom: 35px;
-    margin-top: -5px;
 }
 
 .scr_desc {
-    position: relative;
     width: 574px;
-    height: 151px;
     display: inline-block;
     margin-right: 15px;
     margin-bottom: 30px;
 }
 
 .scr_desc div {
+    float:left;
     display: inline-block;
     width: 200px;
     height: 150px;
     background-color: #445161;
     margin-right: 15px;
-    margin-top: 4px;
+    vertical-align: top;
 }
 
 .scr_desc h3 {
-    position: absolute;
-
+    vertical-align: top;
     display: inline-block;
     margin: 0;
-    /*    width: 310px;*/
-    height: 23px;
+    margin-bottom: 15px;
     color: #445161;
     font-family: "ArialMT";
     font-size: 24px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 23px;
 }
 
 .scr_desc p {
+    overflow: hidden;
     margin: 0;
-    margin-top: 38px;
-    position: absolute;
-    display: inline-block;
-    width: 359px;
-    height: 108px;
+/*    display: inline-block;*/
+/*    width: 219px;*/
     color: #333333;
     font-family: "ArialMT";
     font-size: 16px;
@@ -280,42 +269,38 @@ body {
 }
 
 .review {
-    height: 324px;
+/*    height: 324px;*/
     padding: 50px;
+    padding-bottom: 26px;
     padding-right: 0px;
     background-color: #f5f5f5;
 }
 
 .review h2 {
     margin: 0;
-    margin-top: -5px;
     padding-right: 50px;
-    height: 28px;
+    line-height: 22px;
     text-align: center;
     margin-bottom: 35px;
     color: #445161;
     font-family: "ArialMT";
     font-size: 30px;
     font-weight: 400;
-    line-height: 36px;
 }
 
 .review_div {
-    position: relative;
     display: inline-block;
-    height: 121px;
     width: 574px;
     padding-bottom: 24px;
     padding-right: 32px;
-    /*    box-sizing: border-box;*/
-    /*    margin-right: 32px;*/
+
 }
 
 .rev_desc {
-    position: absolute;
+/*    position: absolute;*/
     display: inline-block;
     width: 483px;
-    height: 121px;
+/*    height: 121px;*/
     background-image: url("/img/bg_review.png");
 }
 
@@ -347,36 +332,31 @@ body {
 
 .round {
     display: inline-block;
+    vertical-align: top;
     width: 75px;
     height: 75px;
     background-color: #445161;
     border-radius: 38px;
-    margin-right: 15px;
+
 }
 
 .buy_now {
-    height: 556px;
-    /*        padding-top: 50px;*/
-    /*    padding-bottom: 50px;*/
     padding: 50px;
 }
 
 .buy_now h2 {
     margin: 0;
-    margin-top: -5px;
-    height: 28px;
+    line-height: 28px;
     text-align: center;
     margin-bottom: 35px;
     color: #445161;
     font-family: "ArialMT";
     font-size: 30px;
     font-weight: 400;
-    line-height: 36px;
 }
 
 .buy_columns {
     text-align: center;
-    /*    height: 500px;*/
 }
 
 .buy_col {
@@ -420,7 +400,6 @@ body {
 }
 
 .buy_col button {
-    /*    text-align: center;*/
     background-color: #ffffff;
     display: block;
     margin: 0 auto;
@@ -438,10 +417,8 @@ body {
 }
 
 .price {
-    /*    display: inline-block;*/
     background-color: #ffffff;
     margin: 0;
-    /*    height: 67px;*/
     color: #445162;
     font-family: "ArialMT";
     font-size: 40px;
@@ -452,49 +429,36 @@ body {
 }
 
 .contacts {
-    height: 409px;
     padding: 50px;
     background-color: #445162;
+    text-align: center;
 }
 
 .contacts h2 {
     margin: 0;
-    margin-top: -5px;
-    height: 28px;
+    line-height: 28px;
     color: #ffffff;
     font-family: "ArialMT";
     font-size: 30px;
     font-weight: 400;
-    line-height: 36px;
     text-align: center;
     margin-bottom: 31px;
 }
 
 .general_cont {
-
-    /*    width: 785px;*/
-    padding-left: 200px;
-    /*    padding-right: 246px;*/
+    display: inline-block;
 }
 
 .our_contacts {
     margin-left: 45px;
     vertical-align: top;
     display: inline-block;
-    height: 205px;
-    width: 250px;
+    text-align: left;
 }
-
-.our_contacts img {
-    margin-bottom: 15px;
-}
-
-
 
 .our_contacts p {
-    position: absolute;
-    /*    padding-bottom: */
     display: inline-block;
+    vertical-align: top;
     margin-top: 0px;
     margin-left: 3px;
     margin-bottom: 29px;
@@ -505,7 +469,9 @@ body {
     font-weight: 400;
     line-height: 24px;
 }
-
+fieldset {
+    margin-left: 0px;
+}
 .form_ {
     display: inline-block;
     vertical-align: top;
@@ -573,8 +539,7 @@ body {
     height: 40px;
     border-radius: 5px;
     margin: 0 auto;
-    margin-bottom: 50px;
-    margin-top: -4px;
+
     border: 0;
 }
 button:hover {
@@ -585,7 +550,7 @@ button:hover {
 }
 .sosa {
     margin: 0 !important;
-    position: relative !important;
+/*    position: relative !important;*/
     display: inline-blockin;
 /*    border-radius: 30px;*/
 /*    width: 42px;*/
@@ -598,6 +563,21 @@ button:hover {
     letter-spacing: 1.5px !important;
     margin-top: 20px !important;
 }
+.triangle {
+/*  margin: 15px;*/
+    background-color: #ebebeb;
+    position: relative;
+    width: 470px; height: 120px;
+    border-radius: 5px;
+   }
+.triangle::before, 
+.triangle::after {
+    content: ''; 
+    position: absolute;
+    left: -26px; top: 26px;
+    border: 13px solid transparent;
+    border-right: 13px solid #ebebeb;
+   }
 
 .footer {
     /*    height: 28px;*/

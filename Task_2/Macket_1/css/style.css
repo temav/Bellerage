@@ -482,6 +482,9 @@ body {
 .our_contacts img {
     width: 24px;
 }
+.our_contacts a {
+    text-decoration: none;
+}
 .our_contacts p {
     display: inline-block;
     vertical-align: top;

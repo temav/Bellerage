@@ -66,9 +66,10 @@ body {
 
 .head_back {
     background-image: url(../img/Base_Image.png) ;
+    background-repeat: round;
     width:100%; 
     height:600px;
-    /*    background-color: #f4c995;*/
+        background-color: #e79247;
     /*    opacity: 0.3;*/
 }
 
@@ -86,12 +87,15 @@ body {
     /*    opacity: 0.3;*/
     margin: 0 auto;
 }
-
+.head_menu_back {
+    background-color: #f0b36c;
+/*    width: 2000px;*/
+}
 .head_menu {
     padding: 23px;
     padding-left: 220px;
     padding-right: 220px;
-    background-color: #f0b36c;
+    background-color: inherit;
     display: flex;
     justify-content: space-between;
 }
@@ -153,11 +157,15 @@ a {
 }
 
 .welcome {
+    position: relative;
     text-align: center;
     /*    height: 400px;
 */
     padding: 175px;
     padding-bottom: 245px;
+}
+.welcome img {
+/*    vertical-align: bottom;*/
 }
 
 .welcome h1 {
@@ -190,39 +198,40 @@ a {
     /*    width: 940px;*/
     /*    height: 160px;*/
 }
-
+.work_icon img {
+    margin-top: -10px;
+}
+/*
 .rounds {
     position: relative;
     z-index: 2;
 }
-
-.rounds img {
-    margin-top: -80px;
-    margin-left: 230px;
-}
-
-.rounds img:first-child {
-    margin-left: 0px;
-}
+*/
 
 .stick img {
     position: absolute;
-    margin-left: -410px;
-    margin-top: -90px;
+    bottom: -1px;
+    z-index: 2;
+    left: 340px;
 }
 
 .work_desc {
+    z-index: 10;
+    background-color: transparent;
     text-align: center;
     padding-bottom: 80px;
+    position: relative;
 }
-
+.work_desc_col img {
+    
+}
 .work_desc_col {
+    
+    vertical-align: top;
     display: inline-block;
     margin-right: 159px;
-    /*    height: 300px;*/
     width: 234px;
-    padding-top: 110px;
-    background-color: #ffffff;
+    margin-top: -90px;
 }
 
 .work_desc_col:last-child {
@@ -311,12 +320,12 @@ a {
 }
 .clients_back,
 .work_desc_back{
-    background-color: 100%
+    background-color: #ffffff;
 }
 .clients {
     padding: 80px;
     text-align: center;
-    background-color: #ffffff;
+
 }
 
 .clients h2 {
@@ -475,7 +484,6 @@ line-height: 48px;
 .footer {
     padding: 80px;
     text-align: center;
-    height: 415px;
 }
 .footer h3 {
     color: #343434;

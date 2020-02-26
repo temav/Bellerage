@@ -60,13 +60,7 @@ body {
 .head_back {
     background-color: #445162;
 }
-.header,
-.ab_y_pr,
-.d_a_p_p,
-.scrinshots,
-.review,
-.buy_now,
-.contacts{
+.back_gen {
     width: 1280px;
     margin: 0 auto;
     box-sizing: border-box;
@@ -78,16 +72,11 @@ body {
     padding: 50px;
 }
 
-.disp_inline {
-    display: inline-block;
-}
-
 .header img {
     margin-right: 10px;
 }
 
 .header h1 {
-    display: inline-block;
     margin: 0px;
     line-height: 45px;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
@@ -100,29 +89,37 @@ body {
 }
 
 .head_rec {
-    display: inline-block;
     width: 469px;
     height: 214px;
     background-color: #ffffff;
     float: right;
+    margin-left: 30px;
 }
 
 .head_list {
-    width: 50%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
-
-.head_list p {
+.head_list_string {
+    margin-bottom: 15px;
+}
+.head_list_string:last-child {
+    margin-bottom: 0;
+}
+.head_list_string p {
+    overflow: hidden;
     margin: 0;
     padding: 0;
-    display: inline-block;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
     color: #ffffff;
     font-family: "ArialMT";
     font-size: 20px;
     font-weight: 400;
-    line-height: 33px;
+    line-height: 22px;
+}
+.head_list_string img{
+    float: left;
 }
 
 .content {
@@ -143,10 +140,10 @@ body {
     height: 245px;
     background-color: #445161;
 }
-
+.ab_y_pr_text {
+    overflow: hidden;
+}
 .ab_y_pr_text p {
-    overflow: inherit;
-    height: 63px;
     color: #333333;
     font-family: "ArialMT";
     font-size: 16px;
@@ -185,7 +182,7 @@ body {
 
 .d_a_p_p h2 {
     margin-bottom: 30px;
-    line-height: 28px;
+    line-height: 22px;
 }
 
 .d_a_div {
@@ -423,6 +420,7 @@ body {
 }
 
 .buy_col button {
+    cursor: pointer;
     background-color: #ffffff;
     display: block;
     margin: 0 auto;
@@ -569,7 +567,7 @@ fieldset {
     height: 40px;
     border-radius: 5px;
     margin: 0 auto;
-
+    cursor: pointer;
     border: 0;
 }
 button:hover {
@@ -580,10 +578,7 @@ button:hover {
 }
 .sosa {
     margin: 0 !important;
-/*    position: relative !important;*/
-    display: inline-blockin;
-/*    border-radius: 30px;*/
-/*    width: 42px;*/
+    display: inline-block;
     height: 42px !important;
     color: #ffffff !important;
     font-family: "Socialico" !important;

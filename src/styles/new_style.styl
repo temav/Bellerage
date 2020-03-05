@@ -1,0 +1,261 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+
+#wrap {
+    min-height: 100%;
+}
+
+/* @font-face { */
+
+/*    font-family: "Arial MT";*/
+
+/*    src: url("../fonts/Arial MT.ttf") format("truetype");*/
+    /* font-style: normal;
+    font-weight: normal;
+} */
+
+
+.container {
+    height: 100%;
+    /* width: 1200px; */
+    box-sizing: border-box;
+    margin: 0 auto;
+/*    border: 1px solid black;*/
+}
+
+.inside_width {
+    margin: 0 auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.header {
+    /* width: 1200px; */
+    box-sizing: border-box;
+/*    border: 1px solid black;*/
+    /* height:  100px; */
+}
+.gen_back {
+    width: 100%; 
+    background-color: inherit;
+}
+
+.custom_care_back {
+    background-color: black;
+}
+
+.custom_care {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 115px;
+    padding-right: 115px;
+    vertical-align: middle;
+}
+.custom_care p {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    color: #ffffff;
+    font-family: "ArialMT";
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+/* Text style for "custom car" */
+    letter-spacing: -0.06px;
+}
+
+.cust_tel {
+    /* display: inline-block; */
+    /* width: 50%; */
+}
+
+.cust_account {
+    /* width: 50%; */
+    /* display: inline-block; */
+    text-align: right;
+    vertical-align: middle;
+}
+.cust_account img {
+    vertical-align: middle;
+}
+
+.currency_list {
+    display: inline-block;
+}
+.user {
+    display: inline-block;
+/*    padding: 6px;*/
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.cust_box {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+/*    height: 100%;*/
+    border-left: 1px solid grey;
+/*    border-bottom: none;*/
+/*    border-top: none;*/
+}
+
+.cust_box:last-child {
+    border-right: 1px solid grey;
+}
+
+.user p, 
+.user img {
+    vertical-align: middle;
+}
+
+.user p {
+    margin-left: 10px;
+}
+
+.cust_search {
+    display: inline-block;
+}
+
+.custom_menu_back {
+    background-color: #ffffff;
+}
+.menu {
+    padding: 20px;
+    padding-left: 115px;
+    padding-right: 115px;
+}
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+    /* margin-right: 180px; */
+}
+
+a {
+    text-decoration: none;
+}
+
+.angle_1 {
+    display: inline-block;
+    width: 0px;
+    border: 4px solid transparent; 
+    border-top: 4px solid #ffffff;
+    vertical-align: bottom;
+    margin-bottom: 3px;
+    margin-left: 10px;
+}
+
+.angle_2 {
+    display: inline-block;
+    width: 0px;
+    border: 4px solid transparent; 
+    border-top: 4px solid #000000;
+    vertical-align: bottom;
+    margin-bottom: 3px;
+    margin-left: 5px;
+}
+
+.menu_list {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.menu_list ul {
+    padding-left: 0;
+}
+
+.menu_list li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.menu_list li:last-child{}
+
+.menu_list a {
+    color: #000000;
+    font-family: "ArialMT";
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.08px;
+}
+
+.cart_box {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 216px;
+    height: 70px;
+}
+
+.your_cart,
+.cart_items  {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 214px;
+    padding: 8px;
+    border: 1px solid #d6d6d6;
+}
+.your_cart {
+    /* height: 34px; */
+}
+
+.cart_items {
+    background-color: #fafafa;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border-top: none;
+}
+
+.cart_box img {
+    vertical-align: middle;
+    margin-right: 100px;
+}
+
+.your_cart p,
+.cart_items p {
+    margin: 0;
+    line-height: 9px;
+    vertical-align: middle;
+    display: inline;
+    color: #949393;
+    font-family: "ArialMT";
+    font-size: 12px;
+    font-weight: 400;
+/* Text style for "Your cart" */
+    letter-spacing: -0.06px;
+}
+
+.cart_items
+
+.content {
+    box-sizing: border-box;
+    border: 1px solid black;
+    height: 200px;
+}
+
+.footer {
+    box-sizing: border-box;
+    margin-top: -100px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+
+
+/* Starting media ipad */
+@media (max-width:960px) {
+    .menu_list {
+        display: none;
+    }
+    .custom_care,
+    .menu {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

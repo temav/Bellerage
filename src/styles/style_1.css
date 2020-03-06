@@ -1,5 +1,48 @@
+@font-face {
+    font-family: "LuxuryRoyaleJF";
+    src: url("../assets/fonts/LuxuryRoyaleJF.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Socialico";
+    src: url("../assets/fonts/Socialico.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "HelveticaNeueLTStd-Lt";
+    src: url("../assets/fonts/HelveticaNeueLTStd-Lt.otf.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "flaticon";
+    src: url("../assets/fonts/flaticon.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "HelveticaNeueLTStdTh";
+    src: url("../assets/fonts/HelveticaNeueLTStdTh.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "HelveticaNeueLTStd-Lt";
+    src: url("../assets/fonts/HelveticaNeueLTStd-Lt.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
 html,
-body {
+body,
+.container {
     height: 100%;
 }
 
@@ -40,96 +83,12 @@ button {
 }
 
 #wrap {
-    min-height: 100%;
-}
-
-@font-face {
-
-    font-family: "ArialMTItalic";
-
-    src: url("../assets/fonts/ArialMTItalic.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-
-    font-family: "AEmpirial";
-
-    src: url("../assets/fonts/1987.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-
-
-@font-face {
-
-    font-family: "LuxuryRoyaleJF";
-
-    src: url("../assets/fonts/LuxuryRoyaleJF.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-
-@font-face {
-
-    font-family: "Socialico";
-
-    src: url("../assets/fonts/Socialico.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-
-@font-face {
-
-    font-family: "Helveticasosat";
-
-    src: url("../assets/fonts/Helveticasosat.otf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-
-    font-family: "ArialMTBold";
-
-    src: url("../assets/fonts/ArialMTBold.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-
-    font-family: "flaticon";
-
-    src: url("../assets/fonts/flaticon.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-
-    font-family: "HelveticaNeueLTStdTh";
-
-    src: url("../assets/fonts/HelveticaNeueLTStdTh.otf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-
-    font-family: "HelveticaNeueLTStd-Lt";
-
-    src: url("../assets/fonts/HelveticaNeueLTStd-Lt.otf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .container {
-    height: 100%;
     box-sizing: border-box;
     margin: 0 auto;
 }
@@ -142,12 +101,6 @@ button {
 
 .inside_width_mid {
     max-width: 1200px;
-}
-
-.inside_width_mob {
-    margin: 0 auto;
-    max-width: 640px;
-    box-sizing: border-box;
 }
 
 .header {
@@ -360,6 +313,7 @@ button {
 
 .content {
     box-sizing: border-box;
+    flex: 1 0 auto;
 }
 
 .footer_back {
@@ -493,7 +447,7 @@ button {
 .sug_text h3 {
     margin: 12px 0 18px 0;
     color: #78645d;
-    font-family: "Helveticasosat";
+    font-family: "HelveticaNeueLTStd-Lt";
     font-size: 36px;
     font-weight: 400;
     text-transform: uppercase;
@@ -535,6 +489,7 @@ button {
 
 .side_butt_right,
 .side_butt_left {
+    z-index: 30;
     position: absolute;
     top: calc(50% - 60px);
     border: none;
@@ -569,7 +524,7 @@ button {
 
 .side_butt_left {
     left: 0;
-} 
+}
 
 .scroll_bar {
     text-align: center;
@@ -585,7 +540,7 @@ button {
     background-color: #867a76;
 }
 
-.scroll_bar a:hover .scroll_point{
+.scroll_bar a:hover .scroll_point {
     background-color: #fd926d;
 }
 
@@ -627,11 +582,14 @@ button {
     border: none;
     padding: 7px 0 7px 10px;
     width: 132px;
+    color: dimgray;
+    font-family: "ArialMT";
 }
 
 .stay_up input::placeholder {
     color: #9f9f9f;
-    font-family: "ArialMTItalic";
+    font-family: "ArialMT";
+    font-style: italic;
     font-size: 12px;
     line-height: 9px;
     font-weight: 400;
@@ -745,12 +703,8 @@ button {
     letter-spacing: -0.15px;
 }
 
-.galary_menu a:first-child {
-
-}
-
 .galary_menu ul li:first-child a,
-.galary_menu ul li:active  a{
+.galary_menu ul li:hover a {
     color: #ffffff;
     background-color: #fd926d;
 }
@@ -927,7 +881,7 @@ i {
     border-top: 1px solid #d8d8d8;
 }
 
-.hui {
+.icon_sale {
     width: 157px;
     margin: 0 15px 0 15px;
     height: 157px;
@@ -1071,7 +1025,8 @@ i {
 .inform_column h3 {
     margin: 0;
     margin-bottom: 20px;
-    font-family: "ArialMTBold";
+    font-family: "ArialMT";
+    font-weight: 700;
     font-size: 16px;
     color: #544f4d;
 }
@@ -1221,9 +1176,11 @@ i {
     .fav_brands_img .icon:nth-child(-n+6) {
         display: block;
     }
+
     .social_column {
         margin-right: 50px;
     }
+
     .inside_width {
         max-width: 760px;
     }
@@ -1299,8 +1256,6 @@ i {
         border-top: 10px solid #ffffff;
         vertical-align: -webkit-baseline-middle;
         margin-left: 14px;
-        /* margin-top: 10px; */
-
     }
 
     .currency_list {
@@ -1467,7 +1422,7 @@ i {
         display: flex;
     }
 
-    .galary_menu a {
+    .galary_menu ul li:first-child a {
         width: 100%;
         display: flex;
         justify-content: space-between;

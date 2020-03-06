@@ -8,7 +8,6 @@ const inject = require('gulp-inject');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 const spritesmith = require('gulp.spritesmith');
-// const sprite = require('')
 
 gulp.task('clean', function (cb) {
     return del('build');

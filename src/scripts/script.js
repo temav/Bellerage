@@ -30,13 +30,6 @@ function selectorCreate(array) {
 
             return div_main;
         }
-        // let input = document.createElement('input');
-        // input.placeholder = "Search";
-        // input.className = "selector_root";
-        // let arrow = document.createElement('div');
-        // arrow.className = "div_arrow";
-        // input.append(arrow);
-        // divSelector.append(input);
         let inputField = createInputField();
         let disapperDiv = document.createElement('div');
         // disapperDiv.style.display = "none";
@@ -47,7 +40,6 @@ function selectorCreate(array) {
             div_option.className = "selector_list_item";
             div_option.innerHTML = t.innerHTML;
             div_option.setAttribute('check', 0);
-            // div_option.setAttribute('order', 0);
             // div_option.style.position = "absolute";
             disapperDiv.append(div_option);
             optionsList.push(div_option);
@@ -59,13 +51,15 @@ function selectorCreate(array) {
                 disapperDiv.style.display = "flex";
             };
             inputField.onmouseout = (event) => {
-                disapperDiv.style.display = "none";
+                if ((optionsList.filter(item => item.getAttribute('check'))==1)!=Nan)
+                    disapperDiv.style.display = "none";
             };
             disapperDiv.onmouseover = (event) => {
                 disapperDiv.style.display = "flex";
             };
             disapperDiv.onmouseout = (event) => {
-                disapperDiv.style.display = "none";
+                // if (!optionsList.filter(item => { if (item.getAttribute('check')) item; }))
+                    disapperDiv.style.display = "none";
             };
             input.onfocus = (event) => {
                 disapperDiv.style.display = "flex";
@@ -84,12 +78,8 @@ function selectorCreate(array) {
             };
         };
         controlDisplay(inputField);
+        
         function checkingItems() {
-            // let checkedItems = new Map();
-            // function itemisAcive (item) {
-            //     item.style.backgroundColor = "red";
-            // }
-
             disapperDiv.onclick = (event) => {
                 let target = event.target;
 
@@ -97,7 +87,7 @@ function selectorCreate(array) {
                     target.style.backgroundColor = "#040961";
                     target.style.color = "white";
                     target.setAttribute('check', 1);
-                    // checkedItems.push(div_option);
+                    // checkedCollection.
                 }
                 else if (target.getAttribute('check')==1) {
                     target.style.backgroundColor = "#dcdcdc";
@@ -105,10 +95,12 @@ function selectorCreate(array) {
                     target.setAttribute('check', 0);
                 }
                 selectorListUpdate(inputField);
-                // checkedItems.push(div_option);
             };
         };
+        
+        //Отмечаем объекты, формируем 
         checkingItems();
+        // let checkedCollection = optionsList.filter(item => { if (item.getAttribute('check')) item; });
 
         divSelector.append(inputField, disapperDiv);
         function selectorListUpdate(inputField) {
@@ -133,7 +125,10 @@ function selectorCreate(array) {
             let ok = document.createElement('button');
             ok.innerHTML = "OK";
             ok.onclick = (event) => {
-                
+                let checkedCollection = optionsList.filter(item => item.getAttribute('check')==1);
+                for (let r of checkedCollection) {
+                    alert(r.innerHTML);
+                }
                 disapperDiv.style.display = "none";
                 input.onfocus = (event) => {
                     disapperDiv.style.display = "none";

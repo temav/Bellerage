@@ -7,8 +7,7 @@ const minifyCSS = require('gulp-minify-css');
 const inject = require('gulp-inject');
 const del = require('del');
 const browserSync = require('browser-sync').create();
-const spritesmith = require('gulp.spritesmith');
-// const sprite = require('')
+// const spritesmith = require('gulp.spritesmith');
 
 gulp.task('clean', function (cb) {
     return del('build');
@@ -35,6 +34,12 @@ gulp.task('inject', function() {
         .pipe(debug({title: 'build'}));
 });
 
+gulp.task('script', function() {
+    return gulp.src('src/scripts/**')
+    .pipe(debug({title: 'src'}))
+    .pipe(gulp.dest('build/scripts/'))
+    .pipe(debug({title: 'build'}));
+});
 
 gulp.task('assets', function() {
     return gulp.src('src/assets/**')
@@ -43,27 +48,12 @@ gulp.task('assets', function() {
     .pipe(debug({title: 'build'}));
 });
 
-gulp.task('sprite', function(cb){
-    cb();
-    var spriteData =
-        gulp.src('./src/assets/img/brands/*.*')
-            .pipe(spritesmith({
-                imgName: 'sprite.png',
-                cssName: 'sprite.css',
-                algorithm: 'binary-tree',
-                cssVarMap: function(sprite) {
-                    sprite.name = 's-' + sprite.name.replace(/\s+/g, '').replace('@', '');
-                }
-            }));
-    spriteData.img.pipe(gulp.dest('build'));
-    spriteData.css.pipe(gulp.dest('src/styles/'));
-});
-
-gulp.task('build', gulp.series('clean','sprite', gulp.parallel('assets', gulp.series('getting:css', 'inject'))));
+gulp.task('build', gulp.series('clean', gulp.parallel('assets','script', gulp.series('getting:css', 'inject'))));
 
 gulp.task('watch', function() {
     gulp.watch('src/styles/*.css', gulp.series('getting:css', 'inject'));
     gulp.watch('src/index.html', gulp.series('inject'));
+    gulp.watch('src/scripts/*.js', gulp.series('script'));
 });
 
 gulp.task('server', function() {

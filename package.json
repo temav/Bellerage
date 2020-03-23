@@ -1,24 +1,22 @@
 {
-  "name": "adaptive-macket",
+  "name": "y",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "./node_modules/.bin/gulp"
+  "description": "knk",
+  "main": "jbk",
+  "dependencies": {
+    "gulp": "^4.0.2"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "del": "^5.1.0",
-    "gulp": "4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-debug": "^4.0.0",
-    "gulp-inject": "^5.0.5",
-    "gulp-inject-css": "^2.0.1",
-    "gulp-minify": "^3.1.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp.spritesmith": "^6.11.0"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "kjkj"
+  },
+  "repository": {
+    "type": "git",
+    "url": "bjj"
+  },
+  "keywords": [
+    "kjik"
+  ],
+  "author": "jj",
+  "license": "ISC"
 }

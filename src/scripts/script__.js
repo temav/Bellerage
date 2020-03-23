@@ -46,25 +46,35 @@ function selectorCreate(array) {
         }
 
         function controlDisplay (inputField) {
-            let flag = 0;
-            inputField.onclick = () => {
-                if (flag == 0) {
-                    disapperDiv.style.display = "flex";
-                    flag = !flag;
-                }
-                else {
-                    disapperDiv.style.display = "none";
-                    flag = !flag;
-                }
+            let input = inputField.querySelector('input');
+            inputField.onmouseover = (event) => {
+                disapperDiv.style.display = "flex";
             };
-            document.onclick = (event) => {
-                let td = event.target.closest('.selector_menu');
-                console.log('click window');
-                if(!document.contains(td)) {
-                    console.log('click not a input');
+            inputField.onmouseout = (event) => {
+                if ((optionsList.filter(item => item.getAttribute('check'))==1)!=Nan)
                     disapperDiv.style.display = "none";
-                    flag = !flag;
-                }
+            };
+            disapperDiv.onmouseover = (event) => {
+                disapperDiv.style.display = "flex";
+            };
+            disapperDiv.onmouseout = (event) => {
+                // if (!optionsList.filter(item => { if (item.getAttribute('check')) item; }))
+                    disapperDiv.style.display = "none";
+            };
+            input.onfocus = (event) => {
+                disapperDiv.style.display = "flex";
+                inputField.onmouseout = (event) => {
+                    disapperDiv.style.display = "flex";
+                };
+                disapperDiv.onmouseout = (event) => {
+                    disapperDiv.style.display = "flex";
+                };
+            };
+            input.onblur = (event) => {
+                disapperDiv.style.display = "none";
+                inputField.onmouseout = (event) => {
+                    disapperDiv.style.display = "none";
+                };
             };
         };
         controlDisplay(inputField);

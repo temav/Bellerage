@@ -1,22 +1,23 @@
 'use strict';
 
-const temaSelector = (function () {
-    const TYPE_DEFAULT = 'default';
-    const TYPE_MULTI = 'multi';
-    const TYPE_SEARCH = 'search';
+(function () {
 
-    function temaSelector (idSelector, paramsSelector) {
-        let selector = document.querySelector(idSelector);
-        selectorCreate(selector, paramsSelector['type'], paramsSelector['filter']);
-    };
+    function selectorGet() {
+        let selector = document.getElementById("tema_selector");
+        return selector;
+    }
 
-    function selectorCreate(selector_old, type, filter) {
-
-        if (![TYPE_DEFAULT, TYPE_MULTI, TYPE_SEARCH].includes(type)) {
+    function selectorCreate(selector_old) {
+        //Set default params 
+        let types = ['default', 'multi', 'search']
+        let type = selector_old.getAttribute('type');
+        // alert(type)
+        if (!types.includes(type)) {
+            // alert('No type');
             type = 'default';
         }
-
-        if (filter != 'true' || (type == TYPE_SEARCH)) {
+        let filter = selector_old.getAttribute('filter');
+        if (filter != 'true' || (type == types[2])) {
             filter = 'false';
         }
 
@@ -29,7 +30,7 @@ const temaSelector = (function () {
         createInnerList(list, div_sel);
 
         selector_old.after(div_sel);
-        selector_old.classList.add("visibility_hidden");
+        selector_old.style.display = "none";
 
         function createInnerList(option_list, divSelector) {
             let optionsList = [];
@@ -39,14 +40,15 @@ const temaSelector = (function () {
                 div_main.className = "selector_root";
                 let input;
                 switch (type) {
-                    case TYPE_DEFAULT:
-                    case TYPE_MULTI: {
+                    case types[0]:
+                    case types[1]: {
                         input = document.createElement('div');
+                        input.style.display = "inline-block";
                         input.className = "selector_input";
                         input.innerHTML = "Select";
                         break;
                     }
-                    case TYPE_SEARCH: {
+                    case types[2]: {
                         input = document.createElement('input');
                         input.placeholder = "Search";
                         input.className = "selector_input";
@@ -65,7 +67,7 @@ const temaSelector = (function () {
             disapperDiv.className = "selector_list";
 
             let inner_search;
-            if (filter == "true" && (type != TYPE_SEARCH)) {
+            if (filter == "true" && (type != types[2])) {
                 inner_search = document.createElement('input');
                 inner_search.className = "selector_filter";
                 inner_search.placeholder = "Filter";
@@ -76,12 +78,11 @@ const temaSelector = (function () {
                 let div_option = document.createElement('div');
                 div_option.className = "selector_list_item";
                 div_option.innerHTML = t.innerHTML;
-                // div_option.setAttribute('check', 0);
+                div_option.setAttribute('check', 0);
                 disapperDiv.append(div_option);
                 optionsList.push(div_option);
             }
-            // disapperDiv.style.display = "none";
-            disapperDiv.classList.add('visibility_hidden');
+            disapperDiv.style.display = "none";
             function controlDisplay() {
                 document.onclick = (event) => {
                     let list = event.target.closest('.selector_list');
@@ -91,11 +92,11 @@ const temaSelector = (function () {
                     console.log(root);
 
                     if (root != null) {
-                        if (disapperDiv.classList.contains('visibility_hidden')) {
-                            disapperDiv.classList.remove('visibility_hidden');
+                        if (disapperDiv.style.display == "none") {
+                            disapperDiv.style.display = "flex";
                             console.log('s');
                         } else {
-                            disapperDiv.classList.add('visibility_hidden');
+                            disapperDiv.style.display = "none";
                         }
                     }
                     //Клик по меню
@@ -103,27 +104,26 @@ const temaSelector = (function () {
                     //Клик мимо кассы
                     if ((list == null) && (root == null)) {
                         // console.log('loh');
-                        disapperDiv.classList.add('visibility_hidden');
+                        disapperDiv.style.display = "none";
                     }
                 };
             };
-
             controlDisplay();
 
             function checkingItems() {
                 disapperDiv.onclick = (event) => {
-                    if (!event.target.classList.contains("selector_list_item"))
+                    if (event.target.className == "selector_filter")
                         return;
                     let target = event.target;
 
                     switch (type) {
-                        case TYPE_DEFAULT:
-                        case TYPE_SEARCH: {
-                            if (!target.classList.contains('check')) {
-                                optionsList.forEach(item => item.classList.remove('check'));
-                                target.classList.add('check');
+                        case types[0]:
+                        case types[2]: {
+                            if (target.getAttribute('check') == 0) {
+                                optionsList.forEach(item => item.setAttribute('check', 0));
+                                target.setAttribute('check', 1);
                             } else {
-                                target.classList.remove('check');
+                                target.setAttribute('check', 0);
                             }
                             if (filter == 'true')
                                 inner_search.value = "";
@@ -132,13 +132,12 @@ const temaSelector = (function () {
                                 document.querySelector('.selector_input').dispatchEvent(event_);
                             break;
                         }
-                        
-                        case TYPE_MULTI: {
-                            if (!target.classList.contains('check')) {
-                                target.classList.add('check');
+                        case types[1]: {
+                            if (target.getAttribute('check') == 0) {
+                                target.setAttribute('check', 1);
                                 // fillInSelectedItems();
-                            } else  {
-                                target.classList.remove('check');
+                            } else if (target.getAttribute('check') == 1) {
+                                target.setAttribute('check', 0);
                                 // fillInSelectedItems();
                             }
                             break;
@@ -146,8 +145,8 @@ const temaSelector = (function () {
                     }
 
                     fillInSelectedItems();
-
-                    if (filter == "true" || (type == TYPE_SEARCH))
+                    setVisualCheckedList();
+                    if (filter == "true" || (type == types[2]))
                         selectorListUpdate(inputField);
 
                     let event_ = new Event("input");
@@ -159,47 +158,49 @@ const temaSelector = (function () {
             //Отмечаем объекты, формируем 
             checkingItems();
 
+            function setVisualCheckedList() {
+                for (let opt of optionsList) {
+                    if (opt.getAttribute('check') == 1) {
+                        opt.style.backgroundColor = "#00364e";
+                        opt.style.color = "white";
 
+                    } else if (opt.getAttribute('check') == 0) {
+                        opt.style.backgroundColor = "#dcdcdc";
+                        opt.style.color = "black";
+                    }
+                }
+            }
+            // let checkedCollection = optionsList.filter(item => { if (item.getAttribute('check')) item; });
 
             divSelector.append(inputField, disapperDiv);
 
             function selectorListUpdate(inputField) {
                 let input;
-                if (type == TYPE_SEARCH)
+                if (type == types[2])
                     input = inputField.querySelector('input');
                 else
                     input = disapperDiv.querySelector('input');
                 input.oninput = function () {
                     let value = input.value;
-                    const search = new RegExp(`^${value}`, 'i');
-
                     for (let z of optionsList) {
-                        if (search.test(z.innerHTML) || (z.classList.contains('check'))) {
-                            z.classList.remove('visibility_hidden');
+                        if ((value == z.innerHTML.slice(0, value.length)) || (z.getAttribute('check') == 1)) {
+                            z.style.display = 'block';
                         } else {
-                            z.classList.add('visibility_hidden');
+                            z.style.display = 'none';
                         }
                     }
-
-                    // for (let z of optionsList) {
-                    //     if ((value == z.innerHTML.substr(0, value.length)) || (z.classList.contains('check'))) {
-                    //         z.classList.remove('visibility_hidden');
-                    //     } else {
-                    //         z.classList.add('visibility_hidden');
-                    //     }
-                    // }
                 };
             };
 
-            if (filter == "true" || (type == TYPE_SEARCH))
+            if (filter == "true" || (type == types[2]))
                 selectorListUpdate(inputField);
 
             function fillInSelectedItems() {
-                let checkedCollection = optionsList.filter(item => item.classList.contains('check'));
+                let checkedCollection = optionsList.filter(item => item.getAttribute('check') == 1);
                 let input = document.querySelector('.selector_input')
                 switch (type) {
-                    case TYPE_DEFAULT:
-                    case TYPE_MULTI: {
+                    case types[0]:
+                    case types[1]: {
                         let top_string = checkedCollection.map(item => item.innerHTML).join(', ');
                         if (top_string != "")
                             input.innerHTML = top_string;
@@ -207,20 +208,17 @@ const temaSelector = (function () {
                             input.innerHTML = "Select";
                         break;
                     }
-                    case TYPE_SEARCH: {
+                    case types[2]: {
                         let top_string = checkedCollection.map(item => item.innerHTML).join(', ');
                         if (top_string != "")
                             input.value = top_string;
-                        else {
+                        else
                             input.value = "";
-                            let event_ = new Event("input");
-                            document.querySelector('.selector_input').dispatchEvent(event_);
-                        }
                         break;
                     }
                 }
-                if (type != TYPE_MULTI)
-                    disapperDiv.classList.add('visibility_hidden');
+                if (type != types[1])
+                    disapperDiv.style.display = "none";
             }
 
             function createButtons() {
@@ -229,22 +227,20 @@ const temaSelector = (function () {
                 let ok = document.createElement('button');
                 ok.innerHTML = "OK";
                 ok.onclick = (event) => {
-                    disapperDiv.classList.add('visibility_hidden');
+                    disapperDiv.style.display = "none";
                     if (filter == 'true')
                         inner_search.value = "";
                     alert('submit');
-                    let event_ = new Event("input");
-                    document.querySelector('.selector_input').dispatchEvent(event_);
                 };
 
                 let cancel = document.createElement('button');
                 cancel.innerHTML = "Cancel";
                 cancel.onclick = (event) => {
-                    disapperDiv.classList.add('visibility_hidden');
-                    optionsList.forEach(item => item.classList.remove('check'));
-                    optionsList.forEach(item => item.classList.remove('visibility_hidden'));
+                    disapperDiv.style.display = "none";
+                    optionsList.forEach(item => item.setAttribute('check', 0));
+                    optionsList.forEach(item => item.style.display = 'block');
                     fillInSelectedItems();
-
+                    setVisualCheckedList();
                     if (filter == 'true')
                         inner_search.value = "";
                 };
@@ -252,11 +248,11 @@ const temaSelector = (function () {
                 div.append(ok, cancel);
                 return div;
             }
-
-            if (type == TYPE_MULTI)
+            if (type == types[1])
                 disapperDiv.append(createButtons());
         }
+
+
     }
-    // document.temaSelector = temaSelector;
-    return temaSelector;
+    selectorCreate(selectorGet());
 }())

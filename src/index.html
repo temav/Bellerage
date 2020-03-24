@@ -6,9 +6,11 @@
     <!-- inject:css -->
     <!-- endinject -->
     <title>Document</title>
+    <script src="scripts/script.js"></script>
 </head>
 <body >
-    <select name="" id="tema_selector">
+   
+    <select name="" id="tema_selector" type="multi" filter="true">
         <option value="">t</option>
         <option value="">to</option>
         <option value="">top</option>
@@ -28,6 +30,7 @@
         <option value="">govno</option>
         <option value="">govno</option>
         <option value="">govno</option>
+        <option value="">top</option>
     </select>
     <select name="" id="tema_selector">
         <option value="">top</option>
@@ -39,6 +42,12 @@
         <option value="">govno</option>
         <option value="">govno</option>
     </select>
-    <script src="scripts/script.js"></script>
+
+    <script>
+        document.onload = function () {
+            temaSelector('#tema_selector', {type: 'multi', filter: false});
+        }
+        document.onload();
+    </script>
 </body>
 </html>

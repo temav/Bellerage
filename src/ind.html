@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="" class="person" method="POST">
+    <p>Your name</p>
+    <input type="text" name="name">
+    <p>Your phone</p>
+    <input type="tel" name="phone">
+    <p>Your email</p>
+    <input type="email" name="email">
+    <button onclick="postFunc()" type="button">POST_FUNC</button>
+  </form>
+
+  <button onclick="ll()">Clean element</button>
+  <div class="result"></div>
+  <script>
+    let ff = document.querySelector('.person');
+    function ll() {
+      ff.style.display = "none";
+    }
+    let div = document.querySelector('.result');
+    function postFunc() {
+      let xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          div.innerHTML = this.response;
+          console.log(JSON.parse(this.response));
+        }
+      };
+      xhttp.open("POST", "http://localhost:3000", true);
+      let formdata = new FormData(ff);
+      //JSON
+      xhttp.setRequestHeader("Content-type", "application/json");
+      let json = JSON.stringify(Object.fromEntries(formdata));
+      xhttp.send(json); 
+      //FORMDATA
+      // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      // xhttp.send(ff);
+    };
+  </script>
+</body>
+
+</html>
